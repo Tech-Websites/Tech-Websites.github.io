@@ -14,27 +14,28 @@
             background-color: #f5f5f5;
         }
 
- header {
+  header {
             background-color: #333;
             color: white;
             padding: 1rem 0;
             text-align: center;
         }
 
-  nav ul {
+   nav ul {
             list-style: none;
             padding: 0;
         }
 
- nav ul li {
+   nav ul li {
             display: inline;
             margin: 0 1rem;
         }
-     nav ul li a {
+    nav ul li a {
             color: white;
             text-decoration: none;
         }
-       #hero {
+
+   #hero {
             background: url('hero-bg.jpg') no-repeat center center/cover;
             color: white;
             padding: 5rem 0;
@@ -58,8 +59,17 @@
             cursor: pointer;
         }
 
-   .designs-container div:hover {
+  .designs-container div:hover {
             transform: scale(1.05);
+        }
+
+  .designs-container div button {
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
         }
 
   footer {
@@ -68,8 +78,7 @@
             padding: 2rem 0;
             text-align: center;
         }
-
- form {
+     form {
             max-width: 600px;
             margin: 0 auto;
         }
@@ -78,13 +87,14 @@
             display: block;
             margin: 1rem 0 0.5rem;
         }
-     form input, form textarea {
+
+ form input, form textarea {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
         }
 
- form button {
+form button {
             background-color: #5cb85c;
             border: none;
             color: white;
@@ -113,14 +123,13 @@
             </ul>
         </nav>
     </header>
-
  <main>
-        <section>
-            <h1>WELCOME TO Tech-Websites!</h1>
+        <section id="hero">
+            <h1>Welcome to Tech-Websites!</h1>
             <p>Find the best website designs for AI and tech companies.</p>
         </section>
 
-   <section id="ai-designs">
+ <section id="ai-designs">
             <h2>AI Company Designs</h2>
             <div class="designs-container" id="ai-designs-container"></div>
         </section>
@@ -130,7 +139,6 @@
             <div class="designs-container" id="tech-designs-container"></div>
         </section>
     </main>
-
  <footer id="contact">
         <h2>Contact Us</h2>
         <form id="contact-form">
@@ -158,25 +166,22 @@
 
         // Dynamic content loading for AI and Tech sections
         const aiDesigns = [
-            { title: 'AI Design 1', description: 'A sleek design perfect for AI startups.', url: '#' },
-            { title: 'AI Design 2', description: 'Modern and dynamic AI company template.', url: '#' },
-            { title: 'AI Design 3', description: 'Professional design for AI enterprises.', url: '#' }
+            { title: 'AI Design 1', description: 'A sleek design perfect for AI startups.', url: 'https://example.com/ai-design-1' },
+            { title: 'AI Design 2', description: 'Modern and dynamic AI company template.', url: 'https://example.com/ai-design-2' },
+            { title: 'AI Design 3', description: 'Professional design for AI enterprises.', url: 'https://example.com/ai-design-3' }
         ];
 
         const techDesigns = [
-            { title: 'Tech Design 1', description: 'Innovative tech company design.', url: '#' },
-            { title: 'Tech Design 2', description: 'Cutting-edge tech startup template.', url: '#' },
-            { title: 'Tech Design 3', description: 'High-tech professional design.', url: '#' }
+            { title: 'Tech Design 1', description: 'Innovative tech company design.', url: 'https://example.com/tech-design-1' },
+            { title: 'Tech Design 2', description: 'Cutting-edge tech startup template.', url: 'https://example.com/tech-design-2' },
+            { title: 'Tech Design 3', description: 'High-tech professional design.', url: 'https://example.com/tech-design-3' }
         ];
 
         function loadDesigns(designs, containerId) {
             const container = document.getElementById(containerId);
             designs.forEach(design => {
                 const designDiv = document.createElement('div');
-                designDiv.innerHTML = `<h3>${design.title}</h3><p>${design.description}</p>`;
-                designDiv.addEventListener('click', () => {
-                    window.location.href = design.url;
-                });
+                designDiv.innerHTML = `<h3>${design.title}</h3><p>${design.description}</p><button onclick="location.href='${design.url}'">View Design</button>`;
                 container.appendChild(designDiv);
             });
         }
@@ -208,3 +213,4 @@
 </html>
 
 
+  
