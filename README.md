@@ -115,8 +115,8 @@
     </header>
 
  <main>
-        <section id="hero">
-            <h1>Welcome to Tech-Websites!</h1>
+        <section>
+            <h1>WELCOME TO Tech-Websites!</h1>
             <p>Find the best website designs for AI and tech companies.</p>
         </section>
 
