@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Design Selling</title>
+    <title>Tech-Websites - Selling Website Designs</title>
     <style>
         /* Basic styling for layout */
         body {
@@ -11,38 +11,37 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #f5f5f5;
         }
 
-   header {
+ header {
             background-color: #333;
             color: white;
             padding: 1rem 0;
             text-align: center;
         }
 
-   nav ul {
+  nav ul {
             list-style: none;
             padding: 0;
         }
 
-  nav ul li {
+ nav ul li {
             display: inline;
             margin: 0 1rem;
         }
-
-   nav ul li a {
-      color: white;
-       text-decoration: none;
+     nav ul li a {
+            color: white;
+            text-decoration: none;
         }
-
-   #hero {
+       #hero {
             background: url('hero-bg.jpg') no-repeat center center/cover;
             color: white;
             padding: 5rem 0;
             text-align: center;
         }
 
-   .designs-container {
+ .designs-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -50,43 +49,56 @@
         }
 
   .designs-container div {
-            background-color: #f4f4f4;
+            background-color: #fff;
             border: 1px solid #ddd;
             margin: 1rem;
             padding: 1rem;
             width: 30%;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
-    .designs-container div:hover {
+
+   .designs-container div:hover {
             transform: scale(1.05);
         }
-     footer {
+
+  footer {
             background-color: #333;
             color: white;
             padding: 2rem 0;
             text-align: center;
         }
-       form {
+
+ form {
             max-width: 600px;
             margin: 0 auto;
         }
-     form label {
+
+   form label {
             display: block;
             margin: 1rem 0 0.5rem;
         }
-
-   form input, form textarea {
+     form input, form textarea {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
         }
 
-  form button {
+ form button {
             background-color: #5cb85c;
             border: none;
             color: white;
             padding: 1rem 2rem;
             cursor: pointer;
+        }
+
+ .fake-button {
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            margin: 1rem 0;
         }
     </style>
 </head>
@@ -102,21 +114,24 @@
         </nav>
     </header>
 
-  <main>
+ <main>
         <section id="hero">
-            <h1>Welcome to Fun Website Designs!</h1>
+            <h1>Welcome to Tech-Websites!</h1>
             <p>Find the best website designs for AI and tech companies.</p>
         </section>
-     <section id="ai-designs">
+
+   <section id="ai-designs">
             <h2>AI Company Designs</h2>
             <div class="designs-container" id="ai-designs-container"></div>
         </section>
-     <section id="tech-designs">
+
+   <section id="tech-designs">
             <h2>Tech Company Designs</h2>
             <div class="designs-container" id="tech-designs-container"></div>
         </section>
     </main>
-   <footer id="contact">
+
+ <footer id="contact">
         <h2>Contact Us</h2>
         <form id="contact-form">
             <label for="name">Name:</label>
@@ -127,9 +142,10 @@
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Send</button>
         </form>
+        <button class="fake-button" onclick="fakeTransfer()">Transfer Money</button>
     </footer>
 
-   <script>
+ <script>
         // Navigation bar interactivity
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -142,15 +158,15 @@
 
         // Dynamic content loading for AI and Tech sections
         const aiDesigns = [
-            { title: 'AI Design 1', description: 'A sleek design perfect for AI startups.' },
-            { title: 'AI Design 2', description: 'Modern and dynamic AI company template.' },
-            { title: 'AI Design 3', description: 'Professional design for AI enterprises.' }
+            { title: 'AI Design 1', description: 'A sleek design perfect for AI startups.', url: '#' },
+            { title: 'AI Design 2', description: 'Modern and dynamic AI company template.', url: '#' },
+            { title: 'AI Design 3', description: 'Professional design for AI enterprises.', url: '#' }
         ];
 
         const techDesigns = [
-            { title: 'Tech Design 1', description: 'Innovative tech company design.' },
-            { title: 'Tech Design 2', description: 'Cutting-edge tech startup template.' },
-            { title: 'Tech Design 3', description: 'High-tech professional design.' }
+            { title: 'Tech Design 1', description: 'Innovative tech company design.', url: '#' },
+            { title: 'Tech Design 2', description: 'Cutting-edge tech startup template.', url: '#' },
+            { title: 'Tech Design 3', description: 'High-tech professional design.', url: '#' }
         ];
 
         function loadDesigns(designs, containerId) {
@@ -158,6 +174,9 @@
             designs.forEach(design => {
                 const designDiv = document.createElement('div');
                 designDiv.innerHTML = `<h3>${design.title}</h3><p>${design.description}</p>`;
+                designDiv.addEventListener('click', () => {
+                    window.location.href = design.url;
+                });
                 container.appendChild(designDiv);
             });
         }
@@ -179,7 +198,13 @@
                 alert('Please fill in all fields.');
             }
         });
+
+        // Fake money transfer function
+        function fakeTransfer() {
+            alert('This is a fake money transfer button.');
+        }
     </script>
 </body>
 </html>
+
 
